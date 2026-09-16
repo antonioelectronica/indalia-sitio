@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página no encontrada · Indalia Ingeniería Industrial</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="fonts.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="iconos/icono-32.png">
+<meta name="theme-color" content="#16284A">
+
+<style>
+:root{
+  --navy:#16284A; --navy-deep:#0F1E3A; --steel:#4A6B8A; --steel-soft:#7C93AB;
+  --cian:#0C93B1; --slate:#1E293B; --slate-soft:#56627A;
+  --line:#E4E8EF; --paper:#FFFFFF; --paper-2:#F7F9FC;
+  --radio:4px; --t:.4s cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Archivo',system-ui,sans-serif;
+  background:var(--paper-2); color:var(--slate);
+  line-height:1.7; font-size:16px; -webkit-font-smoothing:antialiased;
+  min-height:100vh; display:flex; flex-direction:column;
+}
+.wrap{width:100%;max-width:640px;margin-inline:auto;padding-inline:clamp(22px,5vw,40px)}
+
+main{flex:1; display:flex; align-items:center; padding-block:clamp(3rem,10vw,6rem)}
+
+.codigo{
+  font-family:'Fraunces',serif; font-weight:600;
+  font-size:clamp(4.5rem,16vw,8rem); line-height:1;
+  color:var(--navy); letter-spacing:-.03em;
+}
+.barra{
+  width:88px; height:3px; margin:1.6rem 0 2rem;
+  background:linear-gradient(90deg, var(--cian) 0%, var(--steel) 55%, var(--navy) 100%);
+}
+h1{
+  font-family:'Fraunces',serif; font-weight:600;
+  font-size:clamp(1.5rem,4.5vw,2.1rem); line-height:1.25;
+  color:var(--navy); margin-bottom:1rem;
+}
+p{color:var(--slate-soft); margin-bottom:1rem}
+
+.acciones{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:2.2rem}
+.btn{
+  display:inline-flex; align-items:center; gap:.6rem;
+  padding:.9rem 1.7rem; border-radius:var(--radio);
+  font-weight:600; font-size:.92rem; text-decoration:none;
+  border:1px solid transparent; transition:var(--t);
+}
+.btn-primary{background:var(--navy); color:#fff}
+.btn-primary:hover{background:var(--navy-deep); transform:translateY(-2px); box-shadow:0 14px 28px -14px rgba(22,40,74,.55)}
+.btn-outline{border-color:var(--line); color:var(--navy); background:var(--paper)}
+.btn-outline:hover{border-color:var(--steel)}
+
+footer{border-top:1px solid var(--line); background:var(--paper)}
+footer .wrap{padding-block:1.6rem; font-size:.85rem; color:var(--slate-soft); display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap}
+footer a{color:var(--slate-soft)}
+
+@media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+
+<main>
+  <div class="wrap">
+    <div class="codigo">404</div>
+    <div class="barra"></div>
+    <h1>Esta página no existe</h1>
+    <p>El enlace que has seguido está roto o la página se ha movido. No es culpa tuya.</p>
+    <p>Si buscabas algo concreto sobre un proyecto, escríbenos y te respondemos.</p>
+    <div class="acciones">
+      <a href="/" class="btn btn-primary">Volver al inicio</a>
+      <a href="/#contacto" class="btn btn-outline">Contactar</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Indalia Ingeniería Industrial</span>
+    <span><a href="/aviso-legal">Aviso legal</a> · <a href="/privacidad">Privacidad</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

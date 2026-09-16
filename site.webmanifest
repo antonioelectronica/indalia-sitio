@@ -1,0 +1,16 @@
+{
+  "name": "Indalia Ingeniería Industrial",
+  "short_name": "Indalia",
+  "description": "Estudio técnico de ingeniería en Almería: proyectos e instalaciones industriales, desarrollo electrónico y fabricación, y consultoría técnica.",
+  "lang": "es",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#16284A",
+  "icons": [
+    { "src": "/iconos/icono-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/iconos/icono-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/iconos/icono-180.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
