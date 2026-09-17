@@ -181,12 +181,14 @@ h1,h2,h3,h4{ font-family:'Fraunces', Georgia, serif; font-weight:500; letter-spa
   display:inline-flex; align-items:center; gap:.45rem;
   color:var(--navy); text-decoration:none; font-weight:600; font-size:.95rem;
   padding:.5rem .7rem; border-radius:var(--radio);
+  white-space:nowrap;          /* si no, el numero se parte en dos lineas */
+  flex:0 0 auto;
   transition:color .4s cubic-bezier(.22,1,.36,1), background .4s cubic-bezier(.22,1,.36,1);
 }
 .nav-tel svg{ width:.9em; height:.9em; color:var(--cian); }
 .nav-tel:hover{ color:var(--cian-deep,#18859C); background:var(--paper-3,#F0F3F8); }
 .nav-tel:focus-visible{ outline:2px solid var(--cian); outline-offset:2px; }
-@media (max-width:860px){ .nav-tel{ display:none; } }
+@media (max-width:1100px){ .nav-tel{ display:none; } }  /* antes de que aplaste al logotipo */
 .barra-accion .ba-secundaria svg{ width:.9em; height:.9em; }
 
 .barra-accion{
@@ -207,7 +209,8 @@ h1,h2,h3,h4{ font-family:'Fraunces', Georgia, serif; font-weight:500; letter-spa
   border:1px solid transparent; white-space:nowrap;
 }
 .barra-accion .ba-principal{ background:var(--navy); color:#fff; }
-.barra-accion .ba-secundaria{ background:#fff; color:var(--navy); border-color:var(--campo-borde,#D7DEE9); flex:0 0 auto; padding-inline:1.1rem; }
+.barra-accion .ba-secundaria{ background:#fff; color:var(--navy); border-color:var(--campo-borde,#D7DEE9); flex:0 0 auto; padding-inline:.95rem; }
+.barra-accion a{ min-width:0; }   /* pueden encogerse: a 360 px no cabian los dos */
 @media (max-width:860px){
   .barra-accion{ display:flex; }
   body{ padding-bottom:5rem; }   /* para que la barra no tape el pie */
@@ -1285,7 +1288,7 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
 
 <!-- Acción siempre visible en móvil -->
 <div class="barra-accion">
-  <a class="ba-principal" href="#contacto">Solicitar presupuesto</a>
+  <a class="ba-principal" href="#contacto">Presupuesto</a>
   <a class="ba-secundaria" href="tel:+34641410240" aria-label="Llamar al 641 41 02 40"><svg class="fa-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg> Llamar</a>
 </div>
 
@@ -1514,6 +1517,33 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
           <li>Lo presentas en la ITV. Si te ponen pegas, lo defendemos nosotros.</li>
         </ol>
         <a class="card-cta" href="#contacto" style="margin-top:1.1rem">Consultar una reforma</a>
+      </div>
+    </div>
+
+    <div class="vehiculos reveal">
+      <div class="vehiculos-texto">
+        <h3>Certificación energética de viviendas y locales</h3>
+        <p>Para vender o alquilar un inmueble hace falta el certificado de eficiencia energética, y sin él la operación no se puede firmar. Lo hacemos completo: visita al inmueble, cálculo, etiqueta y registro en la Junta de Andalucía.</p>
+        <ul class="reformas">
+          <li>Vivienda</li>
+          <li>Piso o apartamento</li>
+          <li>Local comercial</li>
+          <li>Nave industrial</li>
+          <li>Obra nueva</li>
+          <li>Renovación de certificado</li>
+        </ul>
+        <p class="norma">Certificado firmado por <strong>técnico competente</strong> y registrado en el <strong>Registro de Certificados Energéticos de Andalucía</strong>, que es lo que le da validez legal ante notaría. Te decimos el precio cerrado antes de ir.</p>
+      </div>
+
+      <div class="entrega">
+        <h4>Cómo funciona</h4>
+        <ol>
+          <li>Nos dices dirección, metros y si es venta o alquiler.</li>
+          <li>Te damos precio cerrado y fecha de visita.</li>
+          <li>Visitamos el inmueble y tomamos los datos.</li>
+          <li>Recibes el certificado registrado, listo para la notaría.</li>
+        </ol>
+        <a class="card-cta" href="#contacto" style="margin-top:1.1rem">Pedir un certificado energético</a>
       </div>
     </div>
 
