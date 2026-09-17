@@ -52,6 +52,7 @@
   "logo": "https://indaliaingenieria.es/logo.svg",
   "image": "https://indaliaingenieria.es/og-indalia.jpg",
   "email": "info@indaliaingenieria.es",
+  "telephone": "+34641410240",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
@@ -88,6 +89,7 @@
     "@type": "ContactPoint",
     "contactType": "presupuestos",
     "email": "info@indaliaingenieria.es",
+    "telephone": "+34641410240",
     "availableLanguage": ["es"],
     "areaServed": "ES"
   }
@@ -174,6 +176,18 @@ h1,h2,h3,h4{ font-family:'Fraunces', Georgia, serif; font-weight:500; letter-spa
    En el móvil la llamada a la acción desaparece al hacer scroll.
    Esta barra la mantiene siempre a un toque.
    ================================================================= */
+.nav-tel{
+  display:inline-flex; align-items:center; gap:.45rem;
+  color:var(--navy); text-decoration:none; font-weight:600; font-size:.95rem;
+  padding:.5rem .7rem; border-radius:var(--radio);
+  transition:color .4s cubic-bezier(.22,1,.36,1), background .4s cubic-bezier(.22,1,.36,1);
+}
+.nav-tel svg{ width:.9em; height:.9em; color:var(--cian); }
+.nav-tel:hover{ color:var(--cian-deep,#18859C); background:var(--paper-3,#F0F3F8); }
+.nav-tel:focus-visible{ outline:2px solid var(--cian); outline-offset:2px; }
+@media (max-width:860px){ .nav-tel{ display:none; } }
+.barra-accion .ba-secundaria svg{ width:.9em; height:.9em; }
+
 .barra-accion{
   display:none;
   position:fixed; left:0; right:0; bottom:0; z-index:90;
@@ -1271,7 +1285,7 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
 <!-- Acción siempre visible en móvil -->
 <div class="barra-accion">
   <a class="ba-principal" href="#contacto">Solicitar presupuesto</a>
-  <a class="ba-secundaria" href="mailto:info@indaliaingenieria.es" aria-label="Escribir un correo a Indalia">Email</a>
+  <a class="ba-secundaria" href="tel:+34641410240" aria-label="Llamar al 641 41 02 40"><svg class="fa-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg> Llamar</a>
 </div>
 
 <!-- ===================================================================
@@ -1299,6 +1313,7 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
     </nav>
 
     <div class="nav-actions">
+      <a class="nav-tel" href="tel:+34641410240" aria-label="Llamar al 641 41 02 40"><svg class="fa-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg><span>641 41 02 40</span></a>
       <a href="#contacto" class="btn btn-primary">Solicitar Presupuesto <svg class="fa-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a>
       <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><svg class="fa-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg></button>
     </div>
@@ -1751,6 +1766,10 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
         <h2>Pongamos en marcha tu proyecto</h2>
         <p class="intro">Respondemos en menos de 24&nbsp;h laborables. Sin compromiso.</p>
         <div class="contact-item">
+          <div class="ci-icon"><svg class="fa-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg></div>
+          <div><small>Teléfono</small><span><a href="tel:+34641410240">641 41 02 40</a></span></div>
+        </div>
+        <div class="contact-item">
           <div class="ci-icon"><svg class="fa-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg></div>
           <div><small>Correo</small><span><a href="mailto:info@indaliaingenieria.es">info@indaliaingenieria.es</a></span></div>
         </div>
@@ -1853,7 +1872,7 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
 
     <div class="footer-bottom">
       <span>© 2026 Indalia Ingeniería Industrial. Todos los derechos reservados.</span>
-      <span>Almería, España</span>
+      <span><a href="tel:+34641410240">641 41 02 40</a> · Almería, España</span>
     </div>
   </div>
 </footer>
