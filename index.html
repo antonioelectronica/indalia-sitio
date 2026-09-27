@@ -183,7 +183,7 @@ h1,h2,h3,h4{ font-family:'Fraunces', Georgia, serif; font-weight:500; letter-spa
 .nav-tel{
   display:inline-flex; align-items:center; gap:.45rem;
   color:var(--navy); text-decoration:none; font-weight:600; font-size:.95rem;
-  padding:.5rem .7rem; border-radius:var(--radio);
+  padding:.5rem .5rem; border-radius:var(--radio);
   white-space:nowrap;          /* si no, el numero se parte en dos lineas */
   flex:0 0 auto;
   transition:color .4s cubic-bezier(.22,1,.36,1), background .4s cubic-bezier(.22,1,.36,1);
@@ -191,7 +191,7 @@ h1,h2,h3,h4{ font-family:'Fraunces', Georgia, serif; font-weight:500; letter-spa
 .nav-tel svg{ width:.9em; height:.9em; color:var(--cian); }
 .nav-tel:hover{ color:var(--cian-deep,#18859C); background:var(--paper-3,#F0F3F8); }
 .nav-tel:focus-visible{ outline:2px solid var(--cian); outline-offset:2px; }
-@media (max-width:1100px){ .nav-tel{ display:none; } }  /* antes de que aplaste al logotipo */
+@media (max-width:860px){ .nav-tel{ display:none; } }  /* por debajo lo cubre la barra de accion */
 .barra-accion .ba-secundaria svg{ width:.9em; height:.9em; }
 
 .barra-accion{
@@ -380,7 +380,8 @@ header.scrolled{
   transition:var(--t);
 }
 .logo:hover .iso{ transform:rotate(-4deg) scale(1.04); }
-.logo .logo-txt{ display:flex; flex-direction:column; }
+.logo{ flex-shrink:0; }
+.logo .logo-txt{ display:flex; flex-direction:column; white-space:nowrap; }
 .logo .name{
   font-family:'Fraunces',serif;
   font-weight:600;
@@ -402,14 +403,15 @@ header.scrolled{
 nav ul.menu{ display:flex; gap:.3rem; align-items:center; }
 nav ul.menu a{
   font-size:.92rem; font-weight:500;
-  padding:.55rem 1rem;
+  padding:.55rem .7rem;
+  white-space:nowrap;
   color:var(--slate-soft);
   position:relative;
   transition:var(--t);
 }
 nav ul.menu a::after{
   content:""; position:absolute;
-  left:1rem; right:1rem; bottom:.35rem; height:1px;
+  left:.7rem; right:.7rem; bottom:.35rem; height:1px;
   background:var(--navy);
   transform:scaleX(0); transform-origin:left;
   transition:transform var(--t);
@@ -417,7 +419,8 @@ nav ul.menu a::after{
 nav ul.menu a:hover{ color:var(--navy); }
 nav ul.menu a:hover::after{ transform:scaleX(1); }
 
-.nav-actions{ display:flex; align-items:center; gap:1.1rem; }
+.nav-actions{ display:flex; align-items:center; gap:.8rem; flex-shrink:0; }
+.nav-actions .btn{ padding:.8rem 1.3rem; }
 .burger{
   display:none; background:none; border:none; cursor:pointer;
   width:42px; height:42px; color:var(--navy); font-size:1.25rem;
@@ -1177,7 +1180,7 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
   .anim .services-grid .card.reveal{ transition-delay:0s; }
 }
 /* En móvil no hay menú horizontal: no hay nada que marcar */
-@media (max-width:1100px){
+@media (max-width:1200px){
   nav ul.menu a.activo::after{ display:none; }
 }
 
@@ -1262,11 +1265,11 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
   .services-grid{ grid-template-columns:1fr; }
   .contact-grid{ grid-template-columns:1fr; gap:3rem; }
 }
-/* El menu tiene 6 apartados + boton: deja de caber bastante antes de
-   760px. La hamburguesa debe aparecer en cuanto no quepa, no cuando la
-   pantalla sea de movil. Mismo corte que .nav-tel (1100px): si no, entre
-   980 y 1100 px el boton "Solicitar Presupuesto" se solapa con "Contacto". */
-@media (max-width:1100px){
+/* Logo + menu + telefono + boton miden ~1015px y el contenedor da 1068:
+   por debajo de 1200px de ventana ya no caben y los enlaces se parten
+   por dentro, descuadrando la cabecera. Ahi el menu pasa a hamburguesa;
+   telefono y boton siguen visibles hasta 860px (barra de accion). */
+@media (max-width:1200px){
   nav ul.menu{
     position:fixed; inset:78px 0 auto 0;
     flex-direction:column; align-items:stretch; gap:0; padding:1rem;
@@ -1284,6 +1287,8 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
   nav ul.menu a{ padding:1rem; }
   nav ul.menu a::after{ display:none; }
   .burger{ display:grid; place-items:center; }
+}
+@media (max-width:860px){
   .nav-actions .btn{ display:none; }
 }
 @media (max-width:760px){
@@ -1300,7 +1305,7 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
 <noscript>
   <style>
     /* Sin JavaScript el menú no se puede desplegar: se muestra siempre */
-    @media (max-width:1100px){
+    @media (max-width:1200px){
       nav ul.menu{ display:flex !important; position:static; flex-direction:row;
         flex-wrap:wrap; box-shadow:none; padding:.5rem 0; background:none; }
       .burger{ display:none !important; }
@@ -1333,7 +1338,6 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
 
     <nav>
       <ul class="menu" id="menu">
-        <li><a href="#inicio">Inicio</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#sectores">Sectores</a></li>
         <li><a href="#proceso">Proceso</a></li>
