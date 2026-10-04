@@ -969,7 +969,9 @@ html:not(.anim) .paso:first-child::before{ background:var(--cian); border-color:
 .carrusel-pista::-webkit-scrollbar{ display:none; }
 .carrusel-pista:focus-visible{ outline:2px solid var(--cian); outline-offset:3px; }
 .carrusel-diapo{ flex:0 0 100%; scroll-snap-align:start; }
-.carrusel-diapo.render img{ object-position:center; }   /* render ya en 16:9: sin recorte */
+/* Diapositivas casi cuadradas: la foto del invernadero es vertical y en 16:9 se perdía el aparato */
+.carrusel .id-lamina.carrusel-diapo img{ aspect-ratio:1 / 1; }   /* gana a «.id-lamina img», que va después */
+.carrusel .id-lamina.carrusel-diapo.invernadero img{ object-position:50% 46%; }
 .carrusel-controles{ display:none; align-items:center; justify-content:flex-end; gap:.8rem; margin-top:.7rem; }
 .carrusel.con-js .carrusel-controles{ display:flex; }
 .carrusel-cuenta{ font-size:.85rem; font-weight:600; color:var(--slate-soft); min-width:3.2em; text-align:center; font-variant-numeric:tabular-nums; }
@@ -1806,26 +1808,20 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
              Sin autoplay: el movimiento va por interacción. -->
         <div class="carrusel" role="region" aria-roledescription="carrusel" aria-label="Imágenes de ENTOMIRA">
           <div class="carrusel-pista" tabindex="0">
-            <figure class="id-lamina carrusel-diapo render">
-              <img src="img/entomira-render.webp" alt="Render fotorrealista de ENTOMIRA: carcasa blanca con el panel solar en la tapa y la placa adhesiva amarilla a un lado" width="1238" height="696" loading="lazy" decoding="async">
-              <figcaption>Ensamblaje del dispositivo: carcasa, panel solar y placa adhesiva.</figcaption>
+            <!-- La imagen del invernadero es una RECREACIÓN, no una instalación real:
+                 ENTOMIRA no se ha probado todavía en campo. No quitar «Recreación» del pie. -->
+            <figure class="id-lamina carrusel-diapo invernadero">
+              <img src="img/entomira-invernadero.webp" alt="Recreación de ENTOMIRA colgada de un poste en un invernadero de tomate, con la placa adhesiva amarilla junto a la carcasa blanca y el panel solar en la tapa" width="1145" height="1374" loading="lazy" decoding="async">
+              <figcaption>Recreación: así se instalaría en un invernadero.</figcaption>
             </figure>
             <figure class="id-lamina carrusel-diapo">
               <img src="img/entomira-deteccion.webp" alt="Placa adhesiva amarilla con los insectos detectados por el modelo, cada uno enmarcado con su clase" width="1238" height="1100" loading="lazy" decoding="async">
               <figcaption>Detecciones del modelo sobre una placa adhesiva real.</figcaption>
             </figure>
-            <figure class="id-lamina carrusel-diapo">
-              <img src="img/entomira-deteccion-2.webp" alt="Otra placa adhesiva con mosca blanca y fauna auxiliar localizadas por el detector" width="1238" height="1100" loading="lazy" decoding="async">
-              <figcaption>Otra captura real, con cada insecto localizado y clasificado.</figcaption>
-            </figure>
-            <figure class="id-lamina carrusel-diapo">
-              <img src="img/entomira-captura.webp" alt="Fotografía de una placa adhesiva tal como la toma la cámara de la trampa" width="1238" height="1100" loading="lazy" decoding="async">
-              <figcaption>La placa tal como la fotografía la trampa, antes del análisis.</figcaption>
-            </figure>
           </div>
           <div class="carrusel-controles">
             <button type="button" class="carrusel-btn" data-dir="-1" aria-label="Imagen anterior"></button>
-            <span class="carrusel-cuenta" aria-live="polite">1 / 4</span>
+            <span class="carrusel-cuenta" aria-live="polite">1 / 2</span>
             <button type="button" class="carrusel-btn" data-dir="1" aria-label="Imagen siguiente"></button>
           </div>
         </div>
