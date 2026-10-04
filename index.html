@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ingeniería industrial en Almería | Indalia Ingeniería</title>
-<meta name="description" content="Ingeniería industrial en Almería: proyectos, legalización de instalaciones, licencias, reformas de vehículos, certificado energético y electrónica a medida.">
+<title>Ingeniería industrial en Almería y provincia | Indalia</title>
+<meta name="description" content="Ingeniería industrial en toda la provincia: proyectos, legalización de instalaciones, licencias, reformas de vehículos, certificado energético y electrónica.">
 
 <!-- ====== TIPOGRAFIAS AUTOALOJADAS (sin peticiones a terceros) ======
      Fraunces  : display serif elegante, carácter editorial
@@ -29,7 +29,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Indalia Ingeniería Industrial">
-<meta property="og:title" content="Ingeniería industrial en Almería | Indalia Ingeniería">
+<meta property="og:title" content="Ingeniería industrial en Almería y provincia | Indalia">
 <meta property="og:description" content="Un equipo de ingeniería para todo tu proyecto: proyectos e instalaciones industriales, diseño de PCBs, impresión 3D y automatización. Un único interlocutor, de la idea a la puesta en marcha.">
 <meta property="og:url" content="https://indaliaingenieria.es/">
 <meta property="og:image" content="https://indaliaingenieria.es/og-indalia.jpg">
@@ -37,7 +37,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Indalia Ingeniería Industrial">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ingeniería industrial en Almería | Indalia Ingeniería">
+<meta name="twitter:title" content="Ingeniería industrial en Almería y provincia | Indalia">
 <meta name="twitter:description" content="Proyectos e instalaciones industriales, desarrollo electrónico y fabricación. Un único interlocutor técnico.">
 <meta name="twitter:image" content="https://indaliaingenieria.es/og-indalia.jpg">
 
@@ -47,7 +47,7 @@
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Indalia Ingeniería Industrial",
-  "description": "Estudio técnico de ingeniería en Almería: proyectos e instalaciones industriales, desarrollo electrónico y fabricación, y consultoría técnica. Un único interlocutor, de la idea a la puesta en marcha.",
+  "description": "Estudio técnico de ingeniería para toda la provincia de Almería: proyectos e instalaciones industriales, desarrollo electrónico y fabricación, y consultoría técnica. Un único interlocutor, de la idea a la puesta en marcha.",
   "url": "https://indaliaingenieria.es/",
   "logo": "https://indaliaingenieria.es/logo.svg",
   "image": "https://indaliaingenieria.es/og-indalia.jpg",
@@ -62,7 +62,17 @@
     "addressCountry": "ES"
   },
   "areaServed": [
-    { "@type": "AdministrativeArea", "name": "Almería" },
+    { "@type": "AdministrativeArea", "name": "Provincia de Almería" },
+    { "@type": "City", "name": "Almería" },
+    { "@type": "City", "name": "El Ejido" },
+    { "@type": "City", "name": "Roquetas de Mar" },
+    { "@type": "City", "name": "Adra" },
+    { "@type": "City", "name": "Vícar" },
+    { "@type": "City", "name": "La Mojonera" },
+    { "@type": "City", "name": "Berja" },
+    { "@type": "City", "name": "Níjar" },
+    { "@type": "City", "name": "Huércal-Overa" },
+    { "@type": "City", "name": "Vera" },
     { "@type": "AdministrativeArea", "name": "Andalucía" }
   ],
   "founder": [
@@ -95,7 +105,7 @@
     "email": "info@indaliaingenieria.es",
     "telephone": "+34641410240",
     "availableLanguage": ["es"],
-    "areaServed": "ES"
+    "areaServed": "Provincia de Almería"
   }
 }
 </script>
@@ -947,6 +957,37 @@ html:not(.anim) .paso:first-child::before{ background:var(--cian); border-color:
 /* La foto de detecciones tiene una franja negra arriba: se encuadra la placa amarilla */
 .id-lamina img{ object-position:50% 75%; }
 
+/* --- Carrusel de ENTOMIRA ---------------------------------------------
+   Sin JS: tira horizontal con scroll-snap que se desliza a mano.
+   Con JS (.con-js): aparecen flechas y contador. Nunca avanza solo. */
+.carrusel{ position:relative; min-width:0; }
+.carrusel-pista{
+  display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  scroll-behavior:smooth; overscroll-behavior-x:contain;
+  border-radius:var(--radio); scrollbar-width:none;
+}
+.carrusel-pista::-webkit-scrollbar{ display:none; }
+.carrusel-pista:focus-visible{ outline:2px solid var(--cian); outline-offset:3px; }
+.carrusel-diapo{ flex:0 0 100%; scroll-snap-align:start; }
+.carrusel-diapo.render img{ object-position:center; }   /* render ya en 16:9: sin recorte */
+.carrusel-controles{ display:none; align-items:center; justify-content:flex-end; gap:.8rem; margin-top:.7rem; }
+.carrusel.con-js .carrusel-controles{ display:flex; }
+.carrusel-cuenta{ font-size:.85rem; font-weight:600; color:var(--slate-soft); min-width:3.2em; text-align:center; font-variant-numeric:tabular-nums; }
+.carrusel-btn{
+  width:2.6rem; height:2.6rem; display:grid; place-items:center; cursor:pointer;
+  background:var(--paper); border:1.5px solid var(--navy); border-radius:var(--radio);
+  color:var(--navy); transition:background var(--t), color var(--t);
+}
+.carrusel-btn::before{
+  content:""; width:8px; height:8px; border-top:2px solid currentColor; border-right:2px solid currentColor;
+  transform:rotate(45deg); margin-right:3px;
+}
+.carrusel-btn[data-dir="-1"]::before{ transform:rotate(-135deg); margin:0 0 0 3px; }
+.carrusel-btn:hover, .carrusel-btn:focus-visible{ background:var(--navy); color:#fff; }
+.carrusel-btn:focus-visible{ outline:2px solid var(--cian); outline-offset:3px; }
+.carrusel-btn:disabled{ opacity:.35; cursor:default; background:var(--paper); color:var(--navy); }
+@media (prefers-reduced-motion:reduce){ .carrusel-pista{ scroll-behavior:auto; } }
+
 .ficha{
   background:var(--paper-3); border:1px solid var(--line);
   border-radius:var(--radio); padding:1.7rem;
@@ -1680,7 +1721,7 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
         <span class="s-num">01</span>
         <div class="sector-ilus"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 62 L36 42 L58 62 L80 42 L102 62"/><path d="M14 62 V100 M102 62 V100"/><path d="M10 100 H106"/><path d="M58 100 V78"/><path d="M58 86 q-11 -1 -13 -11 q11 1 13 11 Z"/><path d="M58 86 q11 -1 13 -11 q-11 1 -13 11 Z"/></svg></div>
         <h3>Agroindustria y hortofrutícola</h3>
-        <p>El sector más exigente de Almería. Manipulado, frío, líneas de confección y las instalaciones que las sostienen.</p>
+        <p>El sector más exigente de la provincia. Manipulado, frío, líneas de confección y las instalaciones que las sostienen.</p>
       </article>
       <article class="sector">
         <span class="s-num">02</span>
@@ -1753,7 +1794,7 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
       <div class="id-texto reveal reveal-izq">
         <span class="kicker">Investigación propia · ENTOMIRA</span>
         <h2>ENTOMIRA: visión artificial contra las plagas del invernadero</h2>
-        <p>Aparte de los encargos, mantenemos una investigación propia en marcha. La actual es <strong>ENTOMIRA</strong>, un sistema de visión artificial para el control de plagas en cultivo protegido: un nodo autónomo que fotografía la trampa, analiza la imagen y avisa de lo que ha entrado. Nació como Trabajo Fin de Máster en la Universidad de Almería.</p>
+        <p>Aparte de los encargos, mantenemos una investigación propia en marcha. La actual es <strong>ENTOMIRA</strong>, un sistema de visión artificial para el control de plagas en cultivo protegido: un nodo autónomo diseñado para fotografiar la trampa, analizar la imagen y avisar de lo que ha entrado.</p>
         <p>Todavía no es un producto a la venta. Es el banco de pruebas donde medimos hasta dónde llega cada técnica antes de proponérsela a un cliente, y de donde salen las respuestas incómodas: qué precisión se sostiene fuera del laboratorio, qué aguanta un verano de invernadero y qué cuesta de verdad mantener un equipo funcionando en campo.</p>
         <a class="mas" href="https://entomira.com/" target="_blank" rel="noopener">Ver ENTOMIRA<span class="sr"> en entomira.com (se abre en una pestaña nueva)</span></a>
         <a class="card-cta" href="#contacto">Plantear un proyecto de este tipo</a>
@@ -1761,10 +1802,33 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
 
       <div class="id-col reveal reveal-der">
 
-        <figure class="id-lamina">
-          <img src="img/entomira-deteccion.webp" alt="Placa adhesiva amarilla con los insectos detectados por el modelo, cada uno enmarcado con su clase" width="1238" height="1100" loading="lazy" decoding="async">
-          <figcaption>Detecciones del modelo sobre una placa adhesiva real.</figcaption>
-        </figure>
+        <!-- Carrusel: sin JS se desliza a mano (scroll-snap); el JS solo añade botones y contador.
+             Sin autoplay: el movimiento va por interacción. -->
+        <div class="carrusel" role="region" aria-roledescription="carrusel" aria-label="Imágenes de ENTOMIRA">
+          <div class="carrusel-pista" tabindex="0">
+            <figure class="id-lamina carrusel-diapo render">
+              <img src="img/entomira-ensamblaje.webp" alt="Render del ensamblaje de ENTOMIRA: carcasa blanca con el panel solar en la tapa y la placa adhesiva amarilla a un lado" width="1238" height="696" loading="lazy" decoding="async">
+              <figcaption>Ensamblaje del dispositivo: carcasa, panel solar y placa adhesiva.</figcaption>
+            </figure>
+            <figure class="id-lamina carrusel-diapo">
+              <img src="img/entomira-deteccion.webp" alt="Placa adhesiva amarilla con los insectos detectados por el modelo, cada uno enmarcado con su clase" width="1238" height="1100" loading="lazy" decoding="async">
+              <figcaption>Detecciones del modelo sobre una placa adhesiva real.</figcaption>
+            </figure>
+            <figure class="id-lamina carrusel-diapo">
+              <img src="img/entomira-deteccion-2.webp" alt="Otra placa adhesiva con mosca blanca y fauna auxiliar localizadas por el detector" width="1238" height="1100" loading="lazy" decoding="async">
+              <figcaption>Otra captura real, con cada insecto localizado y clasificado.</figcaption>
+            </figure>
+            <figure class="id-lamina carrusel-diapo">
+              <img src="img/entomira-captura.webp" alt="Fotografía de una placa adhesiva tal como la toma la cámara de la trampa" width="1238" height="1100" loading="lazy" decoding="async">
+              <figcaption>La placa tal como la fotografía la trampa, antes del análisis.</figcaption>
+            </figure>
+          </div>
+          <div class="carrusel-controles">
+            <button type="button" class="carrusel-btn" data-dir="-1" aria-label="Imagen anterior"></button>
+            <span class="carrusel-cuenta" aria-live="polite">1 / 4</span>
+            <button type="button" class="carrusel-btn" data-dir="1" aria-label="Imagen siguiente"></button>
+          </div>
+        </div>
 
         <div class="ficha">
         <dl class="ficha-datos">
@@ -1783,10 +1847,6 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
           <div class="ficha-fila">
             <dt>Software</dt>
             <dd>Servidor propio, API y procesado de imagen de punta a punta</dd>
-          </div>
-          <div class="ficha-fila">
-            <dt>Origen</dt>
-            <dd>Trabajo Fin de Máster, Universidad de Almería</dd>
           </div>
           <div class="ficha-fila estado">
             <dt>Estado</dt>
@@ -1922,7 +1982,7 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
         </div>
         <div class="contact-item">
           <div class="ci-icon"><svg class="fa-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M215.7 499.2C267 435 384 279.4 384 192 384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2 12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg></div>
-          <div><small>Ubicación</small><span>Almería, España</span></div>
+          <div><small>Zona de trabajo</small><span>Toda la provincia: Almería, El Ejido, Roquetas, Adra, Níjar, Levante…</span></div>
         </div>
         <div class="contact-item">
           <div class="ci-icon"><svg class="fa-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg></div>
@@ -1948,9 +2008,15 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
             <input type="text" id="empresa" name="empresa" placeholder="Tu empresa">
           </div>
         </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="tu@empresa.com">
+        <div class="form-row">
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@empresa.com" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="telefono">Teléfono <span class="opcional">— opcional</span></label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Para llamarte si lo prefieres" autocomplete="tel" inputmode="tel">
+          </div>
         </div>
         <div class="field">
           <label for="mensaje">Mensaje</label>
@@ -2023,7 +2089,7 @@ nav ul.menu a.activo::after{ transform:scaleX(1); background:var(--cian); }
 
     <div class="footer-bottom">
       <span>© 2026 Indalia Ingeniería Industrial. Todos los derechos reservados.</span>
-      <span><a href="tel:+34641410240">641 41 02 40</a> · Almería, España</span>
+      <span><a href="tel:+34641410240">641 41 02 40</a> · Toda la provincia de Almería</span>
     </div>
   </div>
 </footer>
@@ -2169,6 +2235,48 @@ if (!quieto){
 })();
 
 /* ============================================================
+   CARRUSEL de ENTOMIRA · flechas y contador
+   ------------------------------------------------------------
+   Sin este script la tira se desliza igual a mano. No avanza
+   nunca solo: el movimiento va por interacción.
+   ============================================================ */
+document.querySelectorAll('.carrusel').forEach(car => {
+  const pista = car.querySelector('.carrusel-pista');
+  const diapos = [...pista.children];
+  const cuenta = car.querySelector('.carrusel-cuenta');
+  const [ant, sig] = car.querySelectorAll('.carrusel-btn');
+  // El índice se guarda aparte: durante el desplazamiento suave scrollLeft aún no ha llegado,
+  // y deducirlo de ahí hacía que dos clics seguidos avanzaran solo una imagen.
+  let idx = 0;
+  const pinta = () => {
+    cuenta.textContent = `${idx + 1} / ${diapos.length}`;
+    ant.disabled = idx <= 0;
+    sig.disabled = idx >= diapos.length - 1;
+  };
+  const ir = i => {
+    idx = Math.max(0, Math.min(diapos.length - 1, i));
+    pista.scrollTo({ left: idx * pista.clientWidth });
+    pinta();
+  };
+  car.querySelectorAll('.carrusel-btn').forEach(b =>
+    b.addEventListener('click', () => ir(idx + Number(b.dataset.dir))));
+  pista.addEventListener('keydown', ev => {
+    if (ev.key === 'ArrowRight') { ev.preventDefault(); ir(idx + 1); }
+    if (ev.key === 'ArrowLeft')  { ev.preventDefault(); ir(idx - 1); }
+  });
+  // Al deslizar con el dedo: el índice se recalcula cuando el desplazamiento se detiene
+  const sincroniza = () => { idx = Math.round(pista.scrollLeft / pista.clientWidth); pinta(); };
+  pista.addEventListener('scrollend', sincroniza);
+  let t; pista.addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(sincroniza, 150); });
+  // Al cambiar el ancho (girar el móvil, redimensionar), la imagen actual vuelve a su sitio
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(() => pista.scrollTo({ left: idx * pista.clientWidth, behavior: 'instant' })).observe(pista);
+  }
+  car.classList.add('con-js');
+  pinta();
+});
+
+/* ============================================================
    FORMULARIO · envío a Formspree
    ------------------------------------------------------------
    Configurado con la cuenta de info@indaliaingenieria.es.
@@ -2204,11 +2312,12 @@ document.getElementById('sendBtn').addEventListener('click', async () => {
   try {
     const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
       method: 'POST',
-      headers: { 'Accept': 'application/json' },
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
       body: JSON.stringify({
         nombre: n,
         empresa: document.getElementById('empresa').value.trim(),
         email: e,
+        telefono: document.getElementById('telefono').value.trim(),
         mensaje: m,
         _subject: `Nuevo mensaje de ${n} · Web Indalia`
       })
@@ -2217,7 +2326,7 @@ document.getElementById('sendBtn').addEventListener('click', async () => {
     if (res.ok) {
       box.classList.remove('error'); box.classList.add('show');
       msg.textContent = 'Gracias. Te responderemos muy pronto.';
-      ['nombre','empresa','email','mensaje'].forEach(id => document.getElementById(id).value = '');
+      ['nombre','empresa','email','telefono','mensaje'].forEach(id => document.getElementById(id).value = '');
       document.getElementById('consent').checked = false;
     } else {
       throw new Error('Respuesta no OK');
